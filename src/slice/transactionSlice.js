@@ -29,6 +29,7 @@ const transactionSlice = createSlice({
             },
           }
         : state,
+      
     deleteTransact: (state, action) =>
       action.payload.type === "expense"
         ? {

@@ -26,7 +26,7 @@ const AddRemove = () => {
   const [amount, setAmount] = useState("");
   const [datetime, setDateTime] = useState("");
   const { data } = useGetBalanceQuery();
-  const balance = data?.balance;
+  const balance = data?.amount;
   const expenseCategories = [
     "Bills",
     "Car",

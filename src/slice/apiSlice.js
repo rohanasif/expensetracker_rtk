@@ -21,10 +21,10 @@ export const expenseApi = createApi({
       }),
     }),
     updateBalance: builder.mutation({
-      query: (amount) => ({
+      query: (number) => ({
         url: "balance",
         method: "PUT",
-        body: { amount: amount },
+        body: { amount: number },
       }),
       invalidatesTags: ["transactions"],
     }),

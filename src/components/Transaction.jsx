@@ -23,7 +23,7 @@ const Transaction = ({ transaction }) => {
         <div className="flex flex-col">
           <p>{transaction.category}</p>
           <span>
-            {transaction.amount} - {transaction.datetime.toString()}
+            Rs. {transaction.amount} - {transaction.datetime.toString()}
           </span>
         </div>
       </div>

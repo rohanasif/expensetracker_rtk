@@ -14,13 +14,19 @@ import { LocalizationProvider } from "@mui/x-date-pickers";
 import { v4 as uuidv4 } from "uuid";
 import { transact } from "../slice/transactionSlice";
 import Transactions from "./Transactions";
+import {
+  useCreateTransactionMutation,
+  useGetBalanceQuery,
+  useUpdateBalanceMutation,
+} from "../slice/apiSlice";
 
 const AddRemove = () => {
-  const balance = useSelector((state) => state.transactions.balance.amount);
   const [type, setType] = useState("income");
   const [category, setCategory] = useState("");
   const [amount, setAmount] = useState("");
   const [datetime, setDateTime] = useState("");
+  const { data } = useGetBalanceQuery();
+  const balance = data?.balance;
   const expenseCategories = [
     "Bills",
     "Car",
@@ -47,9 +53,13 @@ const AddRemove = () => {
   ];
   const dispatch = useDispatch();
 
+  const [createTransaction, creationResponse] = useCreateTransactionMutation();
+  const [updateBalance, updateResponse] = useUpdateBalanceMutation();
+
   const handleCreate = () => {
     const id = uuidv4();
     dispatch(transact({ id, type, category, amount, datetime }));
+    createTransaction({ id, type, category, amount, datetime });
   };
 
   return (

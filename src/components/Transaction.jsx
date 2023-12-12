@@ -1,12 +1,14 @@
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useDispatch } from "react-redux";
+import { useDeleteTransactionMutation } from "../slice/apiSlice";
 import { deleteTransact } from "../slice/transactionSlice";
-
 const Transaction = ({ transaction }) => {
+  const [deleteT, response] = useDeleteTransactionMutation();
   const dispatch = useDispatch();
   const handleDelete = (t) => {
     dispatch(deleteTransact(t));
+    deleteT(t.id);
   };
   return (
     <div className="flex justify-between items-center">

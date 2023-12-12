@@ -1,8 +1,7 @@
-import { useSelector } from "react-redux";
-import {} from "../slice/apiSlice";
+import { useGetTransactionsQuery } from "../slice/apiSlice";
 const Income = () => {
-  const transactions = useSelector((state) => state.transactions.transactions);
-  const incomes = transactions.filter((t) => t.type === "income");
+  const { data } = useGetTransactionsQuery();
+  const incomes = data?.filter((d) => d.type === "income");
   return (
     <div className="bg-white flex flex-col items-center rounded-md p-4 min-h-[200px] ">
       <h1>Income</h1>
@@ -11,7 +10,7 @@ const Income = () => {
           Rs.{" "}
           {incomes?.reduce((total, income) => total + Number(income.amount), 0)}
         </p>
-        {incomes.map((income, i) => {
+        {incomes?.map((income, i) => {
           return (
             <div className="flex justify-around" key={i}>
               <p>

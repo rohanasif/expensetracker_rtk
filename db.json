@@ -1,14 +1,6 @@
 {
-  "transactions": [
-    {
-      "id": "6b2a2421-95ff-4480-87ac-ef70b546180d",
-      "type": "income",
-      "category": "Extra income",
-      "amount": "22",
-      "datetime": "2222-02-21T21:22:00.000Z"
-    }
-  ],
+  "transactions": [],
   "balance": {
-    "amount": 0
+    "amount": null
   }
 }

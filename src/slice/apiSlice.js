@@ -14,12 +14,6 @@ export const expenseApi = createApi({
       }),
       providesTags: ["transactions"],
     }),
-    getTransactionById: builder.query({
-      query: (id) => ({
-        url: `transactions/${id}`,
-        method: "GET",
-      }),
-    }),
     getBalance: builder.query({
       query: () => ({
         url: "balance",
@@ -27,10 +21,10 @@ export const expenseApi = createApi({
       }),
     }),
     updateBalance: builder.mutation({
-      query: (balance) => ({
+      query: (amount) => ({
         url: "balance",
-        method: "PATCH",
-        body: { balance: balance.amount },
+        method: "PUT",
+        body: { amount: amount },
       }),
       invalidatesTags: ["transactions"],
     }),

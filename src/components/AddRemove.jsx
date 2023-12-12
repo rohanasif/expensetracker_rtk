@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   FormControl,
   InputLabel,
@@ -60,6 +60,9 @@ const AddRemove = () => {
     const id = uuidv4();
     dispatch(transact({ id, type, category, amount, datetime }));
     createTransaction({ id, type, category, amount, datetime });
+    updateBalance(
+      balance + (type === "income" ? parseFloat(amount) : -parseFloat(amount))
+    );
   };
 
   return (

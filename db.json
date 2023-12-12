@@ -1,21 +1,6 @@
 {
-  "transactions": [
-    {
-      "id": "7d8a36d8-033d-49ae-9695-c967ff9581fb",
-      "type": "income",
-      "category": "Extra income",
-      "amount": "22",
-      "datetime": "2222-02-21T21:22:00.000Z"
-    },
-    {
-      "id": "b38e2f24-5835-4cd0-8632-362631983619",
-      "type": "expense",
-      "category": "Travel",
-      "amount": "22",
-      "datetime": "2222-02-21T21:22:00.000Z"
-    }
-  ],
+  "transactions": [],
   "balance": {
-    "amount": 0
+    "amount": -22
   }
 }

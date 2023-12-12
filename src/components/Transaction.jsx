@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import {
   useDeleteTransactionMutation,
   useGetBalanceQuery,
+  useUpdateBalanceMutation,
 } from "../slice/apiSlice";
 import { deleteTransact } from "../slice/transactionSlice";
 const Transaction = ({ transaction }) => {
@@ -11,11 +12,13 @@ const Transaction = ({ transaction }) => {
   const dispatch = useDispatch();
   const { data } = useGetBalanceQuery();
   const balance = data?.amount;
+  const [updateBalance, updateResponse] = useUpdateBalanceMutation();
   const handleDelete = (t) => {
     dispatch(deleteTransact(t));
     deleteT(t.id);
     updateBalance(
-      balance - (type === "income" ? parseFloat(amount) : -parseFloat(amount))
+      balance -
+        (t.type === "income" ? parseFloat(t.amount) : -parseFloat(t.amount))
     );
   };
   return (

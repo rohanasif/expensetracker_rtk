@@ -5,7 +5,7 @@ const initialState = {
   balance: { amount: 0 },
 };
 
-const transactionsSlice = createSlice({
+const transactionSlice = createSlice({
   name: "transactions",
   initialState,
   reducers: {
@@ -54,5 +54,5 @@ const transactionsSlice = createSlice({
   },
 });
 
-export const { transact, deleteTransaction } = transactionsSlice.actions;
-export default transactionsSlice.reducer;
+export const { transact, deleteTransact } = transactionSlice.actions;
+export default transactionSlice.reducer;

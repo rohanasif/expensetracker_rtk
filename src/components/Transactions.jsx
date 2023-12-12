@@ -1,6 +1,9 @@
-import { useSelector, useDispatch } from "react-redux";
-import 
+import { useSelector } from "react-redux";
+import Transaction from "./Transaction";
 const Transactions = () => {
-  return <div>Transactions</div>;
+  const transactions = useSelector((state) => state.transactions.transactions);
+  return transactions.map((t, i) => {
+    return <Transaction key={i} transaction={t} />;
+  });
 };
 export default Transactions;

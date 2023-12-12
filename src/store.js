@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import transactionSlice from "./slice/expenseSlicester";
+import transactionSlice from "./slice/transactionSlice";
 import { expenseApi } from "./slice/apiSlice";
 import { setupListeners } from "@reduxjs/toolkit/query/react";
 const store = configureStore({
   reducer: {
-    transactions: transactionSlice.reducer,
+    transactions: transactionSlice,
     [expenseApi.reducerPath]: expenseApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>

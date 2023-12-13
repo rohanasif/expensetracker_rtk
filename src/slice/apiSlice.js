@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const expenseApi = createApi({
   reducerPath: "expenseApi",
-  tagTypes: ["transactions"],
+  tagTypes: ["transactions", "balance"],
   baseQuery: fetchBaseQuery({
     baseUrl: "http://localhost:3000/",
   }),
@@ -19,6 +19,7 @@ export const expenseApi = createApi({
         url: "balance",
         method: "GET",
       }),
+      providesTags: ["balance"],
     }),
     updateBalance: builder.mutation({
       query: (number) => ({
@@ -26,7 +27,7 @@ export const expenseApi = createApi({
         method: "PUT",
         body: { amount: number },
       }),
-      invalidatesTags: ["transactions"],
+      invalidatesTags: ["transacations", "balance"],
     }),
     createTransaction: builder.mutation({
       query: (transaction) => ({

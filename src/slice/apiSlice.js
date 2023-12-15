@@ -35,14 +35,14 @@ export const expenseApi = createApi({
         method: "POST",
         body: transaction,
       }),
-      invalidatesTags: ["transactions"],
+      invalidatesTags: ["transactions", "balance"],
     }),
     deleteTransaction: builder.mutation({
       query: (id) => ({
         url: `transactions/${id}`,
         method: "DELETE",
       }),
-      invalidatesTags: ["transactions"],
+      invalidatesTags: ["transactions", "balance"],
     }),
   }),
 });
